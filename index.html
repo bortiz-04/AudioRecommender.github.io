@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>    
+    <div class="container">
+        <h1>Music Recommendation Generator</h1>
+        <button onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+
+        <p>Enter a song or genre to get recommendations:</p>
+        <input type="text" id="musicInput" placeholder="Enter song or genre...">
+        <button onclick="getRecommendations()">Get Recommendations</button>
+
+        <!-- error Message -->
+        <div id="errorMessage"></div>
+
+        <!-- loading animation -->
+        <div id="loading" class="hidden">Loading...</div>
+
+        <!-- recommendations section -->
+        <div id="recommendations">
+            <h2>Recommendations:</h2>
+            <ul id="recommendationList"></ul>
+        </div>
+    </div>
+
+    <!-- link the java script file -->
+    <script src="script.js"></script>
+</body>
+</html>
+
+<!-- back-end implementations could be: saved searches, user accounts (email + password
+ sign-in) with possibly token authentication, a search history  -->

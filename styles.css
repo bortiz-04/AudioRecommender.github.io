@@ -1,0 +1,254 @@
+/* light Mode (default) */
+h1 {
+    font-size: 36px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(90deg, #007BFF, #00C6FF);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    transition: background 0.3s ease, color 0.3s ease;
+    background: linear-gradient(135deg, #f4f4f4, #e6e6e6);
+}
+
+.container {
+    width: 95%;
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+#loading {
+    display: none;
+    font-style: italic;
+    color: #777;
+}
+
+.hidden {
+    display: none;
+}
+
+/* dark mode */
+.dark-mode {
+    background-color: #222;
+    color: white;
+    background: linear-gradient(135deg, #222, #111);
+}
+
+.dark-mode .container {
+    background-color: #333;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode h1 {
+    color: white;
+}
+
+.dark-mode input {
+    background-color: #444;
+    color: white;
+    border: 1px solid #666;
+}
+
+.dark-mode button {
+    background-color: #555;
+    color: white;
+}
+
+.dark-mode button:hover {
+    background-color: #777;
+}
+
+.dark-mode ul li {
+    /* background-color: #444; */
+    color: white;
+}
+
+/* input Field */
+input {
+    width: 70%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+input:focus {
+    border-color: #007BFF;
+    outline: none;
+    box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.3);
+}
+
+/* button */
+button {
+    padding: 12px 20px;
+    background: linear-gradient(90deg, #007BFF, #00C6FF);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s;
+}
+button:hover {
+    background: linear-gradient(90deg, #0056b3, #0096c7);
+    transform: scale(1.05);
+}
+
+#recommendationList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 0;
+}
+
+#recommendationList li {
+    background: white;
+    margin: 5px;
+    padding: 12px 18px;
+    border-radius: 12px;
+    list-style: none;
+    font-size: 16px;
+    font-weight: 500;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    transform: translateY(10px);
+    opacity: 0;
+    animation: fadeIn 0.4s ease-in-out forwards;
+}
+.dark-mode #recommendationList li {
+    background: #444;
+    color: white;
+}
+#recommendationList li:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* song card styling */
+.song-card {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease-in-out;
+}
+
+/* album cover */
+.song-card img {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+/* play button */
+.play-button {
+    background: linear-gradient(90deg, #007BFF, #00C6FF);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s ease-in-out;
+    margin-left: auto;
+}
+
+.play-button:hover {
+    background: linear-gradient(90deg, #0056b3, #0096c7);
+}
+
+/* active playing effect */
+.play-button.playing {
+    background: #ff4757;
+    box-shadow: 0px 0px 10px rgba(255, 71, 87, 0.7);
+}
+
+/* no preview text */
+.no-preview {
+    font-size: 14px;
+    color: gray;
+    margin-left: auto;
+}
+
+/* updated recommendation list layout */
+#recommendationList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 0;
+}
+
+/* song card styling */
+.song-card {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease-in-out;
+    width: 350px;
+}
+
+/* album cover photo */
+.album-cover {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    margin-right: 15px;
+}
+
+/* song info */
+.song-info p {
+    margin: 5px 0;
+}
+
+/* spotify link button */
+.spotify-link {
+    display: inline-block;
+    background: #1DB954;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s ease-in-out;
+}
+
+.spotify-link:hover {
+    background: #1aa34a;
+}
+
