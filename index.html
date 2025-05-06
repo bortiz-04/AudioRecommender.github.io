@@ -1,37 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Audio Tracker</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
 </head>
-<body>    
-    <div class="container">
-        <h1>Music Recommendation Generator</h1>
+
+<body>
+    <!-- Auth Section -->
+    <div id="authBox" class="auth-container">
+        <h2>Login or Signup to use Program </h2>
+
+        <!-- Signup Form -->
+        <form id="signupForm">
+            <h3>Sign Up</h3>
+            <input type="email" id="signupEmail" placeholder="Email" required />
+            <input type="password" id="signupPassword" placeholder="Password" required />
+            <button type="submit">Create Account</button>
+        </form>
+
+        <!-- Login Form -->
+        <form id="loginForm">
+            <h3>Login</h3>
+            <input type="email" id="loginEmail" placeholder="Email" required />
+            <input type="password" id="loginPassword" placeholder="Password" required />
+            <button type="submit">Login</button>
+        </form>
+
+        <div id="authMessage"></div>
+    </div>
+
+    <!-- Generator Section -->
+<div id="generatorSection" class="container" style="display: none;">
+    <h1>Music Recommendation Program</h1>
+
+    <div class="top-controls">
         <button onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+        <button id="logoutBtn">🚪 Logout</button>
+    </div>
 
-        <p>Enter a song or genre to get recommendations:</p>
-        <input type="text" id="musicInput" placeholder="Enter song or genre...">
-        <button onclick="getRecommendations()">Get Recommendations</button>
-
-        <!-- error Message -->
-        <div id="errorMessage"></div>
-
-        <!-- loading animation -->
-        <div id="loading" class="hidden">Loading...</div>
-
-        <!-- recommendations section -->
-        <div id="recommendations">
-            <h2>Recommendations:</h2>
-            <ul id="recommendationList"></ul>
+    <!-- New User Settings Section -->
+    <div id="user-settings-container" class="user-settings-section">
+        <h2>User Settings</h2>
+        <div class="user-settings-options">
+            <button onclick="viewSearchHistory()">View Search History</button>
+            <button onclick="togglePasswordModal()">Change Password</button>
+            <button onclick="toggleDeleteModal()">Delete Account</button>
+            <button onclick="viewPlaylists()">View Playlists</button>
         </div>
     </div>
 
-    <!-- link the java script file -->
+    <p>Enter an Artist or Song to get recommendations:</p>
+    <input type="text" id="musicInput" placeholder="Enter song or genre..." />
+    <button onclick="getRecommendations()">Get Recommendations</button>
+
+    <!-- Error message -->
+    <div id="errorMessage"></div>
+
+    <!-- Loading animation -->
+    <div id="loading" class="hidden">Loading...</div>
+
+    <!-- Recommendations -->
+    <div id="recommendations">
+        <h2>Recommendations:</h2>
+        <ul id="recommendationList"></ul>
+    </div>
+</div>
+
+
+    <!-- Change Password Modal -->
+    <div id="changePasswordModal" class="auth-container hidden">
+        <h3>Change Password</h3>
+        <form id="changePasswordForm">
+            <input type="password" id="currentPassword" placeholder="Current Password" required />
+            <input type="password" id="newPassword" placeholder="New Password" required />
+            <button type="submit">Submit</button>
+            <button type="button" onclick="closeChangePassword()">Cancel</button>
+            <div id="passwordChangeMessage"></div>
+        </form>
+    </div>
+
+    <!-- Delete Account Modal -->
+    <div id="deleteAccountModal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Delete Your Account</h2>
+            <form id="deleteAccountForm">
+                <input type="password" id="deletePassword" placeholder="Confirm your password" required />
+                <p id="deleteAccountMessage"></p>
+                <button type="submit" class="play-button">Delete Account</button>
+                <button type="button" class="close-btn" onclick="closeDeleteAccount()">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Playlists Display -->
+    <div id="playlistSection" class="container hidden">
+        <h2>Your Playlists</h2>
+        <div>
+            <label for="playlistSearch">🔍 Search Songs:</label>
+            <input type="text" id="playlistSearch" placeholder="Enter keyword..." />
+        </div>
+        <div id="playlistList"></div>
+    </div>
+
     <script src="script.js"></script>
 </body>
-</html>
 
-<!-- back-end implementations could be: saved searches, user accounts (email + password
- sign-in) with possibly token authentication, a search history  -->
+</html>
